@@ -18,36 +18,24 @@ describe('transformToNumber()', () => {
         expect(result).toBe(+input);    
     });
     
-    it('should yield NaN for non-transformable values', () => {
-        // Here we are testing one and the same thing but with different values.
+    it('should yield NaN for non-transformable values', () => {    
+        const input1 = 'invalid';
+        const input2 = {}; 
     
-        // the Arrange phase: 
-        const input = 'invalid';
-        const input2 = {}; // {} is an empty object. An empty object has no properties assigned to it.
-    
-        // the Act phase:
-        const result = transformToNumber(input); // Our expectation here is that the result is NaN ('invalid' string)
+        const result1 = transformToNumber(input1); 
         const result2 = transformToNumber(input2);
         
-        // the Assert phase:
-        expect(result).toBeNaN();
+        expect(result1).toBeNaN();
         expect(result2).toBeNaN();
     });
 });
 
 describe('cleanNumbers()', () => {
-    /* Here we have integration tests. */ 
-
     it('should return an array of number values if an array of string number values is provided', () => {
         const nubmerValues = ['1', '2'];
 
         const cleanedNumbers = cleanNumbers(nubmerValues);
 
-        /* toBe() vs toEqual() 
-        Using [expect(cleanedNumbers).toBe([1, 2]);] will fail 
-        because two arrays, even if they look similar, are not the exact same object 
-        because arrays are just objects and they occupy different places in memory. 
-        Instead of using toBe(), we can use toEqual() which checks the values inside of the array. */
         expect(cleanedNumbers).toEqual([1, 2]);
     });
 
