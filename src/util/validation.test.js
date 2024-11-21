@@ -1,12 +1,6 @@
 import { it, expect, describe } from 'vitest'; // You can import "test" or "it", they are the same, and the same is true for Jest. 
 import { validateStringNotEmpty, validateNumber } from './validation'
 
-/*
-- In Vitest and Jest, using the describe function you can define a new test suite.
-- A test suite makes it clear to which function or class a test belongs to.
-Starting with a string argument, that string describes the unit that you want to test. 
-The second argument is an arrow function, and inside it we put all the tests that belong to this unit. 
-*/
 describe('validateStringNotEmpty()', () => {
   it('should throw an error if an empty string is provided', () => {
     const input = '';
@@ -74,7 +68,6 @@ describe('validateNumber()', () => {
 });
   
   
-
 /* Other tests:  
 it('should throw an error if the string value is empty', () => {
     expect(() => validateStringNotEmpty()).toThrowError() 
